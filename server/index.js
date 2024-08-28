@@ -51,6 +51,11 @@ app.use('/uploads', express.static('uploads'));
 
 app.options('*', cors(corsOptions));
 
+app.use((req, res, next) => {
+  console.log('CORS Headers:', res.getHeaders());
+  next();
+});
+
 app.get('/', (req, res) => {
  res.send( `<h1>Hello From API</h1>`);
 })
