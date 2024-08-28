@@ -7,7 +7,7 @@ const Navbar = ({ profile, name }) => {
     const handleLogoutFunction = async(e) =>{
         e.preventDefault(); 
         try {
-            await axios.post('https://full-stack-8lwk-server.vercel.app/logout', {}, { withCredentials: true });
+            await axios.post('https://full-stack-server-two.vercel.app/logout', {}, { withCredentials: true });
 
             //localStorage.removeItem('authToken');
             //document.cookie = 'uid=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;';
@@ -25,7 +25,7 @@ const Navbar = ({ profile, name }) => {
                 <div className="d-flex align-items-center ms-lg-4 ms-md-0 ms-sm-0">
                      {profile && (
                        <img
-                         src={`https://full-stack-8lwk-server.vercel.app/uploads/${profile}`}
+                         src={`https://full-stack-server-two.vercel.app/uploads/${profile}`}
                          width={40}
                          height={40}
                          style={{ borderRadius: '50%' }}
