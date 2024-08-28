@@ -25,4 +25,3 @@ dist-ssr
 
 # Sensitive files
 .env
-vercel.json
