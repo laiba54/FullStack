@@ -26,9 +26,10 @@ app.use(Session({
 
 const corsOptions = {
   Origin: "https://full-stack-client-sable.vercel.app",
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  headers :  {
+            "Access-Control-Allow-Origin" : "https://full-stack-client-sable.vercel.app"}
 };
 
 // Use middleware
