@@ -21,7 +21,7 @@ app.use(Session({
   maxage : 24 * 60 * 60 * 100,
   resave: false,
   saveUninitialized: true,
-  cookie : {secure : true, httpOnly: true,sameSite: 'strict'}
+  cookie : {secure : true, httpOnly: true,sameSite: 'none'}
 }))
 
 const corsOptions = {
@@ -43,6 +43,14 @@ app.use(passport.session());
 mongodbconnected("mongodb+srv://laibach:QwErtyuIop@cluster0.5uedi.mongodb.net/project?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log('mongodb connected'))
   .catch((err) => console.log('error', err));
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://full-stack-client-sable.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 app.use('/', routeruser);
 app.use('/', routerauth)
