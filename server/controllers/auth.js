@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 async function handleLoginFunction(req, res) {
   const { email, password } = req.body;
   try {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email }).exec();
       if (!user) {
           return res.status(401).send({ msg: 'Invalid email or password' });
       }
