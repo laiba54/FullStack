@@ -15,7 +15,7 @@ async function handleLoginFunction(req, res) {
           return res.status(401).send({ msg: 'Invalid email or password' });
       }
       const token = setUser(user);
-      res.cookie('uid', token, { httpOnly: false, maxAge: 31536000000 }); 
+      res.cookie('uid', token, { httpOnly: true, maxAge: 31536000000 }); 
       user.token = token;
       await user.save()
       return res.status(200).send({ msg: 'Login successful', user });
