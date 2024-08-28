@@ -21,14 +21,13 @@ app.use(Session({
   maxage : 24 * 60 * 60 * 100,
   resave: false,
   saveUninitialized: true,
-  cookie : {secure : true, httpOnly: true,sameSite: 'none'}
+  cookie : {secure : false}
 }))
 
 const corsOptions = {
-  origin: 'https://full-stack-client-sable.vercel.app', // Your client URL
+  origin: 'https://full-stack-client-sable.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Allow cookies to be sent
+  credentials: true,
 };
 
 // Use middleware
@@ -44,28 +43,10 @@ mongodbconnected("mongodb+srv://laibach:QwErtyuIop@cluster0.5uedi.mongodb.net/pr
   .then(() => console.log('mongodb connected'))
   .catch((err) => console.log('error', err));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://full-stack-client-sable.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
-
 app.use('/', routeruser);
 app.use('/', routerauth)
 app.use('/', logoutroute);
 app.use('/uploads', express.static('uploads'));
-
-app.options('*', cors(corsOptions));
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://full-stack-dnei-client.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
 
 app.get('/', (req, res) => {
  res.send( `<h1>Hello From API</h1>`);
@@ -84,4 +65,4 @@ app.get('/getallusers', (req, res) => {
 });
 
 
-app.listen(8000, () => console.log("server started"));
+app.listen(8001, () => console.log("server started"));
