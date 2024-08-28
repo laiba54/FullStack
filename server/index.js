@@ -49,8 +49,6 @@ app.use('/', routerauth)
 app.use('/', logoutroute);
 app.use('/uploads', express.static('uploads'));
 
-app.options('*', cors(corsOptions));
-
 app.get('/', (req, res) => {
  res.send( `<h1>Hello From API</h1>`);
 })
