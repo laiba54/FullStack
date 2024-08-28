@@ -9,7 +9,7 @@ const Users = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/getallusers")
+      .get("https://full-stack-8lwk-server.vercel.app/getallusers")
       .then((response) => {
         if (response.data.length === 0) {
           navigate("/");
@@ -35,7 +35,7 @@ const Users = () => {
               >
                 <div className="mt-2 d-flex justify-content-center">
                   <img
-                    src={`http://localhost:8000/uploads/${user.profile}`}
+                    src={`https://full-stack-8lwk-server.vercel.app/uploads/${user.profile}`}
                     width={80}
                     height={80}
                     style={{ borderRadius: "50%" }}
