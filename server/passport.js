@@ -7,7 +7,7 @@ passport.use(
         {
             clientID : process.env.CLIENT_ID,
             clientSecret : process.env.CLIENT_SECRET,
-            callbackURL : "http://localhost:8000/google/callback",
+            callbackURL : "https://full-stack-8lwk-server.vercel.app/google/callback",
             scope : ['profile', 'email'],
         },
         function (accessToken, refreshToken, profile, done){
