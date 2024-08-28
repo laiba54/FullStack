@@ -40,7 +40,7 @@ app.use(bodyparser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongodbconnected("mongodb://127.0.0.1:27017/project")
+mongodbconnected("mongodb+srv://laibach:QwErtyuIop@cluster0.5uedi.mongodb.net/project?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log('mongodb connected'))
   .catch((err) => console.log('error', err));
 
