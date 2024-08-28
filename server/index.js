@@ -25,7 +25,7 @@ app.use(Session({
 }))
 
 const corsOptions = {
-  origin: 'http://localhost:5174',
+  origin: 'https://full-stack-dnei-client.vercel.app',
   credentials: true,
 };
 
