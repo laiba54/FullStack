@@ -25,7 +25,7 @@ app.use(Session({
 }))
 
 const corsOptions = {
-  origin: '*', // Your client URL
+  origin: 'https://full-stack-dnei-client.vercel.app', // Your client URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // Allow cookies to be sent
