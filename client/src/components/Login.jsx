@@ -28,12 +28,17 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("https://full-stack-server-two.vercel.app/login", form, {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.post(
+        "https://full-stack-server-two.vercel.app/login",
+        form,
+        {
+          mode: "cors",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(res.data);
       navigate("/profile");
     } catch (error) {
@@ -91,11 +96,7 @@ const Login = () => {
                 Signup
               </Link>
             </div>
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-              className="btn"
-            >
+            <button type="button" onClick={handleGoogleLogin} className="btn">
               Continue with Google
             </button>
           </form>
