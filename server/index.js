@@ -21,7 +21,7 @@ app.use(Session({
   maxage : 24 * 60 * 60 * 100,
   resave: false,
   saveUninitialized: true,
-  cookie : {secure : true}
+  cookie : {secure : true , httpOnly: true,sameSite: 'strict'}
 }))
 
 const corsOptions = {
