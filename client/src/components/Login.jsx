@@ -29,6 +29,7 @@ const Login = () => {
 
     try {
       const res = await axios.post("https://full-stack-server-two.vercel.app/login", form, {
+        method : 'POST',
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
