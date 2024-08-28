@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const res = await axios.post("https://full-stack-server-two.vercel.app/login", form, {
-        origin : 'https://full-stack-dnei-client.vercel.app',
+        Access-Control-Allow-Origin : 'https://full-stack-dnei-client.vercel.app',
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
