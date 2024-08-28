@@ -27,7 +27,7 @@ app.use(Session({
 const corsOptions = {
   Origin: "https://full-stack-client-sable.vercel.app",
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  Credentials: true,
+  credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
