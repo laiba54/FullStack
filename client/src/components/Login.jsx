@@ -28,7 +28,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("https://full-stack-8lwk-server.vercel.app/login", form, {
+      const res = await axios.post("https://full-stack-server-two.vercel.app/login", form, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "https://full-stack-8lwk-server.vercel.app/google";
+    window.location.href = "https://full-stack-server-two.vercel.app/google";
   };
 
   return (
