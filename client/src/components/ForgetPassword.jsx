@@ -37,7 +37,7 @@ const ForgetPassword = () => {
 
     try {
       const res = await axios.post(
-        "https://full-stack-8lwk-server.vercel.app/forgetpassword",
+        "https://full-stack-server-two.vercel.app/forgetpassword",
         form,
         {
           withCredentials: true,
