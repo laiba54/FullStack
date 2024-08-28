@@ -49,10 +49,7 @@ app.use('/', routerauth)
 app.use('/', logoutroute);
 app.use('/uploads', express.static('uploads'));
 
-app.use((req, res, next) => {
-  console.log(`Request method: ${req.method}, Request URL: ${req.url}`);
-  next();
-});
+app.options('*', cors(corsOptions));
 
 app.get('/', (req, res) => {
  res.send( `<h1>Hello From API</h1>`);
