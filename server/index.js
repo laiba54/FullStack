@@ -21,14 +21,14 @@ app.use(Session({
   maxage : 24 * 60 * 60 * 100,
   resave: false,
   saveUninitialized: true,
-  cookie : {secure : true , httpOnly: true,sameSite: 'strict'}
+  cookie : {secure : true, httpOnly: true,sameSite: 'strict'}
 }))
 
 const corsOptions = {
-  origin: 'https://full-stack-dnei-client.vercel.app',
+  origin: 'https://full-stack-dnei-client.vercel.app', // Your client URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
+  credentials: true, // Allow cookies to be sent
 };
 
 // Use middleware
@@ -52,7 +52,10 @@ app.use('/uploads', express.static('uploads'));
 app.options('*', cors(corsOptions));
 
 app.use((req, res, next) => {
-  console.log('CORS Headers:', res.getHeaders());
+  res.setHeader('Access-Control-Allow-Origin', 'https://full-stack-dnei-client.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
