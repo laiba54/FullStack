@@ -21,7 +21,7 @@ app.use(Session({
   maxage : 24 * 60 * 60 * 100,
   resave: false,
   saveUninitialized: true,
-  cookie : {secure : false}
+  cookie : {secure : true}
 }))
 
 const corsOptions = {
@@ -46,6 +46,11 @@ app.use('/', routeruser);
 app.use('/', routerauth)
 app.use('/', logoutroute);
 app.use('/uploads', express.static('uploads'));
+
+app.use((req, res, next) => {
+  console.log(`Request method: ${req.method}, Request URL: ${req.url}`);
+  next();
+});
 
 app.get('/', (req, res) => {
  res.send( `<h1>Hello From API</h1>`);
