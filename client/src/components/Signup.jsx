@@ -68,7 +68,7 @@ const Signup = () => {
     if (form.profile) formdata.append("profile", form.profile);
 
     try {
-      await axios.post("https://full-stack-8lwk-server.vercel.app/signup", formdata, {
+      await axios.post("https://full-stack-server-two.vercel.app/signup", formdata, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -84,7 +84,7 @@ const Signup = () => {
   };
 
   const handleGoogleSignup = () => {
-    window.location.href = "https://full-stack-8lwk-server.vercel.app/google";
+    window.location.href = "https://full-stack-server-two.vercel.app/google";
   };
 
   return (
