@@ -37,7 +37,7 @@ const Profile = () => {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.patch(
-        `http://localhost:8000/updateusers/${editingUser._id}`,
+        `https://full-stack-8lwk-server.vercel.app/updateusers/${editingUser._id}`,
         formdata,
         {
           headers: {
@@ -72,7 +72,7 @@ const Profile = () => {
     const token = localStorage.getItem("authToken");
 
     axios
-      .get("http://localhost:8000/getusers", {
+      .get("https://full-stack-8lwk-server.vercel.app/getusers", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -111,7 +111,7 @@ const Profile = () => {
             <div className="d-flex flex-column mt-3">
               <div className="mt-5">
                 <img
-                  src={`http://localhost:8000/uploads/${user.profile}`}
+                  src={`https://full-stack-8lwk-server.vercel.app/uploads/${user.profile}`}
                   width={120}
                   height={120}
                   style={{ borderRadius: "50%" }}
