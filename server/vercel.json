@@ -9,7 +9,7 @@
         "dest" : "src/index.js",
         "methods" : ["GET" , "POST", "PUSH", "DELETE", "PATCH", "OPTIONS"],
         "headers" : {
-            "Access-Control-Allow-Origin" : "https://full-stack-client-sable.vercel.app"
+            "Access-Control-Allow-Origin" : "*"
         }
     }]
 }
